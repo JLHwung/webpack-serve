@@ -69,7 +69,8 @@ module.exports = (opts) => {
           close(() => {
             log.info(`Process Ended via ${sig}`);
             server.kill();
-            process.exit(0);
+            // gracefully exit the process
+            process.exitCode = 0;
           });
         });
       }
